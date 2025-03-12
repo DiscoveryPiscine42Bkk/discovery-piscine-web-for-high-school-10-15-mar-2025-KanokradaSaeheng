@@ -2,12 +2,24 @@
 <html>
 <head>
     <title>Tab</title>
+    <style>
+        .box {
+            width: 800px;
+            height: 200px;
+            font-size: 24px;
+            border: 1px solid black;
+            padding: 10px; 
+        }
+        table {
+            margin: 50px auto; 
+        }
+    </style>
 </head>
-<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
-    <table border="1" width="800" height="200">
+<body>
+    <table>
         <tr>
-            <td style="background: lightgreen;">First cell</td>
-            <td style="background: lightcoral;">Second cell</td>
+            <td class="box" style="background-color: lightgreen;">First cell</td>
+            <td class="box" style="background-color: lightcoral;">Second cell</td>
         </tr>
     </table>
 </body>
