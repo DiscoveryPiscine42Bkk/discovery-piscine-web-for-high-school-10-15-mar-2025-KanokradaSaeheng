@@ -8,8 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Password Popup -->
-  <div id="passwordPopup" class="popup">
+  <!-- Password Popup (Hidden Initially) -->
+  <div id="passwordPopup" class="popup hidden">
     <div class="popup-content">
       <h1>🍰 Enter the Password 🍬</h1>
       <div id="passwordDisplay">Tap the numbers</div>
@@ -31,32 +31,88 @@
     </div>
   </div>
 
-  <!-- Main Page (Hidden Initially) -->
-  <div id="mainPage" class="hidden">
-    <h1>Welcome to Our Portfolio 🎀</h1>
+  <!-- Main Page (Visible Initially) -->
+  <div id="mainPage">
+    <h1>Who’s Portfolio Are You Craving Today? 🍰</h1>
+    <p class="intro">
+      Welcome to our sweet little corner of the web! Here, creativity meets dessert in the most delightful way. Choose a treat and dive into our work!
+    </p>
     <div class="portfolio-buttons">
-      <button onclick="showPortfolio('myPortfolio')" class="portfolio-btn">
-        <span>My Portfolio</span>
-        <span class="emoji">🌸</span>
+      <button onclick="showPortfolio('ksaehengPortfolio')" class="portfolio-btn cake">
+        <span class="emoji">🍰</span>
+        <span class="name">Ksaeheng</span>
+        <span class="description">A taste of game design, illustration, and coding</span>
       </button>
-      <button onclick="showPortfolio('friendPortfolio')" class="portfolio-btn">
-        <span>Friend's Portfolio</span>
-        <span class="emoji">🍭</span>
+      <button onclick="showPortfolio('nbannamaPortfolio')" class="portfolio-btn cupcake">
+        <span class="emoji">🧁</span>
+        <span class="name">Nbannama</span>
+        <span class="description">A bite of animation, graphic design, and writing</span>
       </button>
     </div>
+    <p class="outro">
+      Click on a name (or a dessert!) to explore our portfolios and see what we’ve been cooking up!
+    </p>
   </div>
 
-  <!-- My Portfolio Page (Hidden Initially) -->
-  <div id="myPortfolio" class="portfolio hidden">
-    <h2>My Portfolio 🌸</h2>
-    <p>This is my work! Check out my amazing projects.</p>
+  <!-- Ksaeheng's Portfolio Page (Hidden Initially) -->
+  <div id="ksaehengPortfolio" class="portfolio hidden">
+    <h2>Ksaeheng's Portfolio 🌸</h2>
+    <div class="section">
+      <h3>About Me</h3>
+      <div class="photo-info">
+        <img src="ksaeheng.jpg" alt="Ksaeheng's Photo" class="photo">
+        <p class="info">Hi, I'm Ksaeheng! I love designing and creating beautiful things. Welcome to my portfolio!</p>
+      </div>
+    </div>
+    <div class="section">
+      <h3>Activities & Portfolio</h3>
+      <p>Here are some of my recent projects and activities:</p>
+      <ul>
+        <li>Project 1: A website design for a local bakery.</li>
+        <li>Project 2: A mobile app for tracking daily tasks.</li>
+        <li>Activity: Participated in a design hackathon.</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h3>Contact</h3>
+      <p>Feel free to reach out to me:</p>
+      <ul>
+        <li>Email: ksaeheng@example.com</li>
+        <li>Phone: +123 456 7890</li>
+        <li>Instagram: @ksaeheng_designs</li>
+      </ul>
+    </div>
     <button onclick="goBack()" class="back-btn">Back to Main</button>
   </div>
 
-  <!-- Friend's Portfolio Page (Hidden Initially) -->
-  <div id="friendPortfolio" class="portfolio hidden">
-    <h2>Friend's Portfolio 🍭</h2>
-    <p>This is my friend's work! Explore their creativity.</p>
+  <!-- Nbannama's Portfolio Page (Hidden Initially) -->
+  <div id="nbannamaPortfolio" class="portfolio hidden">
+    <h2>Nbannama's Portfolio 🍭</h2>
+    <div class="section">
+      <h3>About Me</h3>
+      <div class="photo-info">
+        <img src="nbannama.jpg" alt="Nbannama's Photo" class="photo">
+        <p class="info">Hi, I'm Nbannama! I'm passionate about art and technology. Check out my work!</p>
+      </div>
+    </div>
+    <div class="section">
+      <h3>Activities & Portfolio</h3>
+      <p>Here are some of my recent projects and activities:</p>
+      <ul>
+        <li>Project 1: An interactive art installation.</li>
+        <li>Project 2: A blog about creative coding.</li>
+        <li>Activity: Organized a community art exhibition.</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h3>Contact</h3>
+      <p>Feel free to reach out to me:</p>
+      <ul>
+        <li>Email: nbannama@example.com</li>
+        <li>Phone: +987 654 3210</li>
+        <li>Instagram: @nbannama_art</li>
+      </ul>
+    </div>
     <button onclick="goBack()" class="back-btn">Back to Main</button>
   </div>
 

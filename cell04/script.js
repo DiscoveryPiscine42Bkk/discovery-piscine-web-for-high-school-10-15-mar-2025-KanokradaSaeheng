@@ -39,3 +39,8 @@ function goBack() {
   });
   document.getElementById("mainPage").classList.remove("hidden");
 }
+
+// Show password popup on page load
+window.onload = function () {
+  document.getElementById("passwordPopup").classList.remove("hidden");
+};
