@@ -2,6 +2,12 @@
 const correctPassword = "1234"; // Password is now 1234
 let enteredPassword = "";
 
+// Check if the password has already been entered
+if (localStorage.getItem("passwordEntered") === "true") {
+  document.getElementById("passwordPopup").classList.add("hidden");
+  document.getElementById("mainPage").classList.remove("hidden");
+}
+
 function addNumber(number) {
   enteredPassword += number;
   updatePasswordDisplay();
@@ -20,6 +26,9 @@ function checkPassword() {
   const errorMessage = document.getElementById("errorMessage");
 
   if (enteredPassword === correctPassword) {
+    // Store the password state in localStorage
+    localStorage.setItem("passwordEntered", "true");
+
     document.getElementById("passwordPopup").classList.add("hidden");
     document.getElementById("mainPage").classList.remove("hidden");
   } else {
@@ -28,19 +37,9 @@ function checkPassword() {
   }
 }
 
-function showPortfolio(portfolioId) {
-  document.getElementById("mainPage").classList.add("hidden");
-  document.getElementById(portfolioId).classList.remove("hidden");
-}
-
-function goBack() {
-  document.querySelectorAll(".portfolio").forEach(portfolio => {
-    portfolio.classList.add("hidden");
-  });
-  document.getElementById("mainPage").classList.remove("hidden");
-}
-
-// Show password popup on page load
+// Show password popup on page load if password hasn't been entered
 window.onload = function () {
-  document.getElementById("passwordPopup").classList.remove("hidden");
+  if (localStorage.getItem("passwordEntered") !== "true") {
+    document.getElementById("passwordPopup").classList.remove("hidden");
+  }
 };

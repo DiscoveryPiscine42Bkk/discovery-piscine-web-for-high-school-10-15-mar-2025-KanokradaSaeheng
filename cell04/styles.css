@@ -1,9 +1,11 @@
 /* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
+
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Poppins', sans-serif; /* Poppins for normal text */
   background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Soft pink gradient */
   color: #5a3a3a; /* Brownish text for contrast */
 }
@@ -28,11 +30,24 @@ body, html {
   box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5);
 }
 
+h1, h2, h3 {
+  font-family: 'Pacifico', cursive; /* Pacifico for headings */
+  color: #ff69b4; /* Hot pink */
+}
+
 h1 {
-  font-family: 'Pacifico', cursive;
   font-size: 36px;
   margin-bottom: 20px;
-  color: #ff69b4; /* Hot pink */
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
 }
 
 #passwordDisplay {
@@ -110,11 +125,6 @@ h1 {
   box-sizing: border-box;
 }
 
-.fullscreen h1, .fullscreen h2 {
-  margin-top: 20px;
-  text-align: center;
-}
-
 .content {
   max-width: 800px;
   width: 100%;
@@ -156,6 +166,7 @@ h1 {
   gap: 10px;
   width: 200px;
   box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+  text-decoration: none;
 }
 
 .portfolio-btn:hover {
@@ -189,12 +200,6 @@ h1 {
 /* Portfolio Pages Styling */
 .portfolio .content {
   text-align: center;
-}
-
-.portfolio h2 {
-  font-family: 'Pacifico', cursive;
-  font-size: 32px;
-  color: #ff69b4; /* Hot pink */
 }
 
 .section {
@@ -239,6 +244,8 @@ ul li {
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .back-btn:hover {
