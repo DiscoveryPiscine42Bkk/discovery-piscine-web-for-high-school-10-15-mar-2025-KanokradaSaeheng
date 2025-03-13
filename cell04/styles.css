@@ -1,12 +1,9 @@
 /* styles.css */
-body {
-  font-family: 'Quicksand', sans-serif;
+body, html {
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  height: 100%;
+  font-family: 'Quicksand', sans-serif;
   background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Soft pink gradient */
   color: #5a3a3a; /* Brownish text for contrast */
 }
@@ -102,12 +99,33 @@ h1 {
   display: none;
 }
 
-/* Main Page Styling */
-#mainPage {
-  text-align: center;
+/* Fullscreen Pages */
+.fullscreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align content to the top */
+  min-height: 100vh;
   padding: 20px;
+  box-sizing: border-box;
+}
+
+.fullscreen h1, .fullscreen h2 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.content {
   max-width: 800px;
+  width: 100%;
   margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Main Page Styling */
+#mainPage .content {
+  text-align: center;
 }
 
 .intro, .outro {
@@ -169,11 +187,8 @@ h1 {
 }
 
 /* Portfolio Pages Styling */
-.portfolio {
+.portfolio .content {
   text-align: center;
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
 .portfolio h2 {
