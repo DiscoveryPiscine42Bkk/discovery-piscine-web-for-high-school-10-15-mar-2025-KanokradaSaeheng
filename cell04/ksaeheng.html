@@ -3,41 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ksaeheng's Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>Kanokrada Saeheng's Portfolio</title>
+  <link rel="stylesheet" href="portfolio-styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@700&family=Handlee&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <div class="fullscreen">
-    <h2>Ksaeheng's Portfolio 🌸</h2>
-    <div class="content">
-      <div class="section">
-        <h3>About Me</h3>
-        <div class="photo-info">
-          <img src="ksaeheng.jpg" alt="Ksaeheng's Photo" class="photo">
-          <p class="info">Hi, I'm Ksaeheng! I love designing and creating beautiful things. Welcome to my portfolio!</p>
-        </div>
-      </div>
-      <div class="section">
-        <h3>Activities & Portfolio</h3>
-        <p>Here are some of my recent projects and activities:</p>
-        <ul>
-          <li>Project 1: A website design for a local bakery.</li>
-          <li>Project 2: A mobile app for tracking daily tasks.</li>
-          <li>Activity: Participated in a design hackathon.</li>
-        </ul>
-      </div>
-      <div class="section">
-        <h3>Contact</h3>
-        <p>Feel free to reach out to me:</p>
-        <ul>
-          <li>Email: ksaeheng@example.com</li>
-          <li>Phone: +123 456 7890</li>
-          <li>Instagram: @ksaeheng_designs</li>
-        </ul>
-      </div>
-      <a href="index.html" class="back-btn">Back to Main</a>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <h2>Sweet Portfolio Café</h2>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <!-- Unique dessert images on both sides -->
+    <div class="dessert-left-port"></div>
+    <div class="profile-container">
+      <img src="images/da-profile.jpg" alt="Kanokrada Saeheng" class="profile-pic">
+      <h1>Welcome to My Sweet Portfolio</h1>
+      <p>Name: Kanokrada Saeheng</p>
+      <p>Nickname: Da</p>
+      <p>School: Suankularb Wittayalai Thonburi</p>
+      <blockquote>"Despite everything, it's still you."</blockquote>
     </div>
-  </div>
+    <div class="dessert-right-port"></div>
+  </header>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Recipe for Success</h2>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <h3>Web Development Waffles</h3>
+        <p>HTML, CSS, JavaScript</p>
+      </div>
+      <div class="skill-card">
+        <h3>Programming Pastries</h3>
+        <p>C, C#, Python</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section id="certificates">
+    <h2>Sweet Achievements – Certified Treats!</h2>
+    <div class="certificate-grid">
+      <img src="certificates/da-cert1.jpg" alt="Certificate 1" class="certificate">
+      <img src="certificates/da-cert2.jpg" alt="Certificate 2" class="certificate">
+      <img src="certificates/da-cert3.jpg" alt="Certificate 3" class="certificate">
+      <img src="certificates/da-cert4.jpg" alt="Certificate 4" class="certificate">
+      <img src="certificates/da-cert5.jpg" alt="Certificate 5" class="certificate">
+      <img src="certificates/da-cert6.jpg" alt="Certificate 6" class="certificate">
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Stay in Touch – Let’s Bake Something Great!</h2>
+    <div class="contact-info">
+      <p>📞 Phone: 090-981-5826</p>
+      <div class="contact-icons">
+        <a href="https://www.facebook.com/share/18XxkiaoLE/" target="_blank">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/daly.mal?igsh=MXhydm56OW9nczNuaQ==" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://github.com/KanokradaSaeheng" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>🍰 Thanks for visiting my portfolio! 🍰</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

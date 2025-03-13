@@ -1,253 +1,220 @@
-/* styles.css */
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
-
-body, html {
+/* General Styles */
+body {
+  font-family: 'Handlee', cursive;
+  background-color: #f9e9e9;
+  color: #5a3e36;
   margin: 0;
   padding: 0;
-  height: 100%;
-  font-family: 'Poppins', sans-serif; /* Poppins for normal text */
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Soft pink gradient */
-  color: #5a3a3a; /* Brownish text for contrast */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body takes up the full viewport height */
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
-.popup {
+/* Header Styles */
+header {
+  background-color: #ffd1dc;
+  padding: 20px;
+  text-align: center;
+  position: relative; /* For decorative elements */
+}
+
+header h1 {
+  font-size: 4em; /* Bigger title */
+  margin: 0;
+  color: #5a3e36;
+  font-family: 'Cherry Swash', cursive; /* New font for the title */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Dessert Images on Main Page */
+header .dessert-left,
+header .dessert-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(-15deg); /* Slight rotation */
+  width: 120px; /* Adjust width as needed */
+  height: 120px; /* Adjust height as needed */
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2; /* Ensure images are above the header */
+  transition: transform 0.3s ease; /* Smooth rotation on hover */
+  animation: bounce 2s ease-in-out infinite; /* Add bounce animation */
+}
+
+header .dessert-left {
+  left: 10px; /* Position on the left */
+  background-image: url('images/dessert-left.png'); /* Add your left dessert PNG */
+}
+
+header .dessert-right {
+  right: 10px; /* Position on the right */
+  background-image: url('images/dessert-right.png'); /* Add your right dessert PNG */
+  transform: translateY(-50%) rotate(15deg); /* Rotate the right image in the opposite direction */
+}
+
+/* Add a hover effect to the dessert images */
+header .dessert-left:hover,
+header .dessert-right:hover {
+  transform: translateY(-50%) rotate(0deg); /* Straighten on hover */
+  animation: none; /* Stop bounce animation on hover */
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(-50%) rotate(-15deg); }
+  50% { transform: translateY(-55%) rotate(-15deg); } /* Slight upward movement */
+}
+
+header .dessert-right {
+  animation: bounce-right 2s ease-in-out infinite; /* Separate animation for right image */
+}
+
+@keyframes bounce-right {
+  0%, 100% { transform: translateY(-50%) rotate(15deg); }
+  50% { transform: translateY(-55%) rotate(15deg); } /* Slight upward movement */
+}
+
+/* Main Container for Cards */
+.main-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
+  justify-content: space-around; /* Space cards evenly */
+  align-items: center; /* Center cards vertically */
+  padding: 20px;
+  gap: 20px; /* Space between cards */
+  flex-grow: 1; /* Allow the main container to grow and push the footer down */
+  position: relative;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* Add a more visible background pattern to the main container */
+.main-container::before {
+  content: '';
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white overlay */
+  background: url('images/bg-pattern.png') repeat; /* Add a subtle pattern */
+  opacity: 0.3; /* Increased opacity for better visibility */
+  z-index: -1;
 }
 
-.popup-content {
-  background: #fff0f5; /* Light pink background */
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5);
-}
-
-h1, h2, h3 {
-  font-family: 'Pacifico', cursive; /* Pacifico for headings */
-  color: #ff69b4; /* Hot pink */
-}
-
-h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-
-h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
-h3 {
-  font-size: 24px;
-  margin-bottom: 15px;
-}
-
-#passwordDisplay {
-  font-size: 24px;
-  margin: 20px 0;
-  padding: 15px;
-  border: 2px solid #ffb6c1; /* Light pink border */
-  border-radius: 10px;
+/* Card Styles (Main Page) */
+.menu-card {
   background-color: #fff;
-  color: #ff69b4; /* Hot pink text */
-}
-
-.keypad {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.keypad button {
-  padding: 20px;
-  font-size: 24px;
-  border: none;
   border-radius: 15px;
-  background-color: #ffb6c1; /* Light pink */
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.keypad button:hover {
-  background-color: #ff69b4; /* Hot pink on hover */
-}
-
-.clear-btn, .submit-btn {
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  background-color: #ff6f61; /* Coral for clear button */
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.clear-btn:hover {
-  background-color: #ff3b2f; /* Darker coral on hover */
-}
-
-.submit-btn {
-  background-color: #ff94c2; /* Soft pink for submit button */
-}
-
-.submit-btn:hover {
-  background-color: #ff69b4; /* Hot pink on hover */
-}
-
-.error {
-  color: #ff6f61; /* Coral for error messages */
-  margin-top: 15px;
-}
-
-.hidden {
-  display: none;
-}
-
-/* Fullscreen Pages */
-.fullscreen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* Align content to the top */
-  min-height: 100vh;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.content {
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-/* Main Page Styling */
-#mainPage .content {
+  padding: 30px; /* Increased padding for more space */
   text-align: center;
-}
-
-.intro, .outro {
-  font-size: 18px;
-  margin: 20px auto;
-  max-width: 600px;
-  color: #5a3a3a;
-}
-
-.portfolio-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.portfolio-btn {
-  padding: 20px;
-  border: none;
-  border-radius: 20px;
-  background-color: #fff;
-  color: #5a3a3a;
-  cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  width: 200px;
-  box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
-  text-decoration: none;
+  width: 45%; /* Set a fixed width for each card */
+  box-sizing: border-box; /* Ensure padding is included in width */
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #ffd1dc; /* Add a border for a cute look */
 }
 
-.portfolio-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(255, 182, 193, 0.5);
+.menu-card:hover {
+  transform: rotate(3deg);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.portfolio-btn.cake {
-  background-color: #ffb6c1; /* Light pink for cake button */
-}
-
-.portfolio-btn.cupcake {
-  background-color: #ff94c2; /* Soft pink for cupcake button */
-}
-
-.emoji {
-  font-size: 40px;
-}
-
-.name {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.description {
-  font-size: 14px;
-  text-align: center;
-  color: #5a3a3a;
-}
-
-/* Portfolio Pages Styling */
-.portfolio .content {
-  text-align: center;
-}
-
-.section {
-  margin-bottom: 30px;
-}
-
-.photo-info {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.photo {
-  width: 150px;
-  height: 150px;
+.profile-pic {
+  width: 180px; /* Increased size for more space */
+  height: 180px; /* Increased size for more space */
   border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #ffb6c1; /* Light pink border */
+  border: 5px solid #ffd1dc;
+  object-fit: cover; /* Prevent image squeezing */
+  margin-bottom: 20px; /* Increased margin for more space */
 }
 
-.info {
-  font-size: 18px;
-  text-align: left;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-ul li {
-  margin-bottom: 10px;
-}
-
-.back-btn {
+.btn {
+  background-color: #ffd1dc;
   padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  background-color: #ff6f61; /* Coral */
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  border-radius: 20px;
   text-decoration: none;
+  color: #5a3e36;
   display: inline-block;
+  margin-top: 15px; /* Increased margin for more space */
+  transition: background-color 0.3s ease;
 }
 
-.back-btn:hover {
-  background-color: #ff3b2f; /* Darker coral on hover */
+.btn:hover {
+  background-color: #ffb6c1; /* Slightly darker pink on hover */
+}
+
+/* Decorate Kanokrada Saeheng's Card */
+.menu-card.ksaeheng::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 80px; /* Adjust size as needed */
+  height: 80px; /* Adjust size as needed */
+  background-image: url('images/decor-left.png'); /* Add your left decoration PNG */
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1; /* Ensure it's above the card */
+}
+
+/* Decorate Nbannama's Card */
+.menu-card.nbannama::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 80px; /* Adjust size as needed */
+  height: 80px; /* Adjust size as needed */
+  background-image: url('images/decor-right.png'); /* Add your right decoration PNG */
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1; /* Ensure it's above the card */
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #ffd1dc;
+  position: relative;
+  margin-top: auto; /* Push footer to the bottom */
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+footer p {
+  animation: float 3s ease-in-out infinite;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+  }
+  .menu-card {
+    width: 90%; /* Full width on smaller screens */
+  }
+
+  header .dessert-left,
+  header .dessert-right {
+    display: none; /* Hide dessert images on smaller screens */
+  }
+
+  header h1 {
+    font-size: 2.5em; /* Slightly smaller title on smaller screens */
+  }
+
+  .menu-card.ksaeheng::after,
+  .menu-card.nbannama::after {
+    width: 60px; /* Smaller decorations on smaller screens */
+    height: 60px;
+  }
 }

@@ -1,45 +1,23 @@
-// script.js
-const correctPassword = "1234"; // Password is now 1234
-let enteredPassword = "";
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
 
-// Check if the password has already been entered
-if (localStorage.getItem("passwordEntered") === "true") {
-  document.getElementById("passwordPopup").classList.add("hidden");
-  document.getElementById("mainPage").classList.remove("hidden");
-}
+// Sticky navigation bar
+const navbar = document.querySelector('.navbar');
+const header = document.querySelector('header');
+const headerHeight = header.offsetHeight;
+const navbarMargin = 20; // Same as the margin in CSS
 
-function addNumber(number) {
-  enteredPassword += number;
-  updatePasswordDisplay();
-}
-
-function clearPassword() {
-  enteredPassword = "";
-  updatePasswordDisplay();
-}
-
-function updatePasswordDisplay() {
-  document.getElementById("passwordDisplay").textContent = enteredPassword || "Tap the numbers";
-}
-
-function checkPassword() {
-  const errorMessage = document.getElementById("errorMessage");
-
-  if (enteredPassword === correctPassword) {
-    // Store the password state in localStorage
-    localStorage.setItem("passwordEntered", "true");
-
-    document.getElementById("passwordPopup").classList.add("hidden");
-    document.getElementById("mainPage").classList.remove("hidden");
+window.addEventListener('scroll', () => {
+  if (window.scrollY > headerHeight - navbarMargin) {
+    navbar.classList.add('sticky');
   } else {
-    errorMessage.textContent = "Incorrect password. Try again.";
-    clearPassword();
+    navbar.classList.remove('sticky');
   }
-}
-
-// Show password popup on page load if password hasn't been entered
-window.onload = function () {
-  if (localStorage.getItem("passwordEntered") !== "true") {
-    document.getElementById("passwordPopup").classList.remove("hidden");
-  }
-};
+});

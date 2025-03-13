@@ -1,0 +1,356 @@
+/* General Styles */
+body {
+    font-family: 'Handlee', cursive;
+    background-color: #f9e9e9;
+    color: #5a3e36;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes up the full viewport height */
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+  }
+  
+  /* Navigation Bar Styles */
+  .navbar {
+    background-color: #ffd1dc; /* Pastel pink background */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    margin: 20px; /* Margin from the top */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: sticky; /* Make the navbar sticky */
+    top: 20px; /* Stick to the top with the same margin */
+    z-index: 1000; /* Ensure it's above other content */
+    width: calc(100% - 40px); /* Ensure the navbar doesn't exceed its container width */
+    max-width: 1200px; /* Optional: Set a max-width for larger screens */
+    margin-left: auto;
+    margin-right: auto;
+    transition: none; /* Disable transitions to prevent visual changes */
+  }
+  
+  .navbar.sticky {
+    position: fixed;
+    top: 20px; /* Maintain the same top margin */
+    left: 50%; /* Center the navbar horizontally */
+    transform: translateX(-50%); /* Center the navbar horizontally */
+    width: calc(100% - 40px); /* Retain the same width */
+    max-width: 1200px; /* Optional: Set a max-width for larger screens */
+    margin: 0 auto; /* Center the navbar */
+    border-radius: 15px; /* Retain the rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: none; /* Disable animation to prevent visual changes */
+  }
+  
+  .navbar h2 {
+    font-family: 'Cherry Swash', cursive;
+    font-size: 1.8em;
+    color: #5a3e36;
+    margin: 0;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Space between navigation items */
+  }
+  
+  .navbar ul li {
+    display: inline;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: #5a3e36;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .navbar ul li a:hover {
+    background-color: #ffb6c1; /* Slightly darker pink on hover */
+    color: #fff; /* White text on hover */
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: #ffd1dc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    margin: 20px;
+    position: relative; /* For positioning dessert images */
+  }
+  
+  header h1 {
+    font-size: 3em;
+    margin: 0;
+    color: #5a3e36;
+    font-family: 'Cherry Swash', cursive;
+  }
+  
+  header p {
+    font-size: 1.2em;
+    margin: 5px 0;
+  }
+  
+  header blockquote {
+    font-style: italic;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: inline-block;
+  }
+  
+  /* Profile Picture Styles */
+  header .profile-pic {
+    width: 200px; /* Bigger profile picture */
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #ffd1dc; /* Match the border color */
+    object-fit: cover; /* Ensure the image fits well */
+    margin-bottom: 15px; /* Space below the picture */
+  }
+  
+  /* Unique Dessert Images for Portfolio Pages */
+  header .dessert-left-port,
+  header .dessert-right-port {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(-15deg); /* Slight rotation */
+    width: 120px; /* Adjust width as needed */
+    height: 120px; /* Adjust height as needed */
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2; /* Ensure images are above the header */
+    transition: transform 0.3s ease; /* Smooth rotation on hover */
+    animation: bounce 2s ease-in-out infinite; /* Add bounce animation */
+  }
+  
+  header .dessert-left-port {
+    left: 10px; /* Position on the left */
+    background-image: url('images/dessert-left-port.png'); /* Unique left dessert PNG */
+  }
+  
+  header .dessert-right-port {
+    right: 10px; /* Position on the right */
+    background-image: url('images/dessert-right-port.png'); /* Unique right dessert PNG */
+    transform: translateY(-50%) rotate(15deg); /* Rotate the right image in the opposite direction */
+  }
+  
+  /* Add a hover effect to the dessert images */
+  header .dessert-left-port:hover,
+  header .dessert-right-port:hover {
+    transform: translateY(-50%) rotate(0deg); /* Straighten on hover */
+    animation: none; /* Stop bounce animation on hover */
+  }
+  
+  /* Bounce Animation */
+  @keyframes bounce {
+    0%, 100% { transform: translateY(-50%) rotate(-15deg); }
+    50% { transform: translateY(-55%) rotate(-15deg); } /* Slight upward movement */
+  }
+  
+  header .dessert-right-port {
+    animation: bounce-right 2s ease-in-out infinite; /* Separate animation for right image */
+  }
+  
+  @keyframes bounce-right {
+    0%, 100% { transform: translateY(-50%) rotate(15deg); }
+    50% { transform: translateY(-55%) rotate(15deg); } /* Slight upward movement */
+  }
+  
+  /* Skills Section */
+  #skills {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .skill-card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #ffd1dc;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/bg-pattern.png') repeat; /* Subtle background pattern */
+    opacity: 0.1; /* Very subtle pattern */
+    z-index: -1;
+  }
+  
+  .skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Certificates Section */
+  #certificates {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 30px; /* Increased space between certificates */
+    padding: 20px;
+    max-width: 800px; /* Limit the width for better alignment */
+    margin: 0 auto; /* Center the grid */
+  }
+  
+  .certificate {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #ffd1dc;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .certificate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/bg-pattern.png') repeat; /* Subtle background pattern */
+    opacity: 0.1; /* Very subtle pattern */
+    z-index: -1;
+  }
+  
+  .certificate:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Contact Section */
+  #contact {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .contact-info {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    display: inline-block;
+    border: 2px solid #ffd1dc;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .contact-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/bg-pattern.png') repeat; /* Subtle background pattern */
+    opacity: 0.1; /* Very subtle pattern */
+    z-index: -1;
+  }
+  
+  .contact-info p {
+    margin: 10px 0;
+    font-size: 1.1em;
+  }
+  
+  /* Icon Styles */
+  .contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between icons */
+    margin-top: 15px;
+  }
+  
+  .contact-icons a {
+    text-decoration: none;
+    color: #5a3e36;
+    transition: transform 0.3s ease;
+  }
+  
+  .contact-icons a:hover {
+    transform: scale(1.2); /* Enlarge icons on hover */
+  }
+  
+  .contact-icons i {
+    font-size: 2em; /* Icon size */
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #ffd1dc;
+    margin-top: 20px;
+    border-radius: 15px;
+  }
+  
+  footer p {
+    font-size: 1.2em;
+    margin: 0;
+  }
+  
+  /* Responsive Design for Certificates */
+  @media (max-width: 768px) {
+    .certificate-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .certificate-grid {
+      grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+  }
+  
+  /* Responsive Design for Navigation Bar */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .navbar ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
+  /* Responsive Design for Header */
+  @media (max-width: 768px) {
+    header .dessert-left-port,
+    header .dessert-right-port {
+      display: none; /* Hide dessert images on smaller screens */
+    }
+  
+    header .profile-pic {
+      width: 150px; /* Slightly smaller profile picture */
+      height: 150px;
+    }
+  }
