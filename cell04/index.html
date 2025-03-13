@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Selection</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Password Popup -->
+  <div id="passwordPopup" class="popup">
+    <div class="popup-content">
+      <h1>🍰 Enter the Password 🍬</h1>
+      <div id="passwordDisplay">Tap the numbers</div>
+      <div class="keypad">
+        <button onclick="addNumber('1')">1</button>
+        <button onclick="addNumber('2')">2</button>
+        <button onclick="addNumber('3')">3</button>
+        <button onclick="addNumber('4')">4</button>
+        <button onclick="addNumber('5')">5</button>
+        <button onclick="addNumber('6')">6</button>
+        <button onclick="addNumber('7')">7</button>
+        <button onclick="addNumber('8')">8</button>
+        <button onclick="addNumber('9')">9</button>
+        <button onclick="addNumber('0')">0</button>
+        <button onclick="clearPassword()" class="clear-btn">Clear</button>
+        <button onclick="checkPassword()" class="submit-btn">Submit</button>
+      </div>
+      <p id="errorMessage" class="error"></p>
+    </div>
+  </div>
+
+  <!-- Main Page (Hidden Initially) -->
+  <div id="mainPage" class="hidden">
+    <h1>Welcome to Our Portfolio 🎀</h1>
+    <div class="portfolio-buttons">
+      <button onclick="showPortfolio('myPortfolio')" class="portfolio-btn">
+        <span>My Portfolio</span>
+        <span class="emoji">🌸</span>
+      </button>
+      <button onclick="showPortfolio('friendPortfolio')" class="portfolio-btn">
+        <span>Friend's Portfolio</span>
+        <span class="emoji">🍭</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- My Portfolio Page (Hidden Initially) -->
+  <div id="myPortfolio" class="portfolio hidden">
+    <h2>My Portfolio 🌸</h2>
+    <p>This is my work! Check out my amazing projects.</p>
+    <button onclick="goBack()" class="back-btn">Back to Main</button>
+  </div>
+
+  <!-- Friend's Portfolio Page (Hidden Initially) -->
+  <div id="friendPortfolio" class="portfolio hidden">
+    <h2>Friend's Portfolio 🍭</h2>
+    <p>This is my friend's work! Explore their creativity.</p>
+    <button onclick="goBack()" class="back-btn">Back to Main</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
