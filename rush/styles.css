@@ -17,6 +17,121 @@ body {
   position: relative;
 }
 
+/* Modern Top Bar */
+.top-bar {
+  position: fixed; /* Fixed position to stay at the top */
+  top: -60px; /* Start off-screen */
+  right: 0;
+  background: rgba(255, 111, 145, 0.9); /* Semi-transparent pink background */
+  backdrop-filter: blur(10px); /* Blur effect for modern look */
+  padding: 10px 20px;
+  border-bottom-left-radius: 20px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  z-index: 1000; /* Ensure it's above everything else */
+  animation: slideIn 0.5s ease-out 0.5s forwards; /* Slide-in animation */
+}
+
+.top-bar-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff; /* White text for contrast */
+  text-transform: uppercase; /* Uppercase text for modern look */
+  letter-spacing: 1px; /* Spacing between letters */
+  display: flex;
+  align-items: center; /* Vertically center the emoji and text */
+  gap: 8px; /* Space between emoji and text */
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+  from {
+    top: -60px; /* Start off-screen */
+  }
+  to {
+    top: 0; /* Slide into view */
+  }
+}
+
+/* Large Bottom Left Image */
+.bottom-left-image {
+  position: fixed; /* Fixed position to stay in place */
+  bottom: -600px; /* Start off-screen */
+  left: -600px; /* Start off-screen */
+  z-index: -1; /* Place the image behind other elements */
+  transform: rotate(-15deg); /* Rotate the image slightly */
+  width: 600px; /* Adjust the size of the image */
+  height: auto; /* Maintain aspect ratio */
+  overflow: hidden; /* Hide parts of the image that extend outside the container */
+  animation: slideInImage 2.5s ease-out 0.5s forwards, floatImage 6s infinite ease-in-out 3s; /* Slide-in and continuous float animation */
+}
+
+.bottom-left-image img {
+  width: 100%; /* Ensure the image fills the container */
+  height: auto; /* Maintain aspect ratio */
+  opacity: 0.8; /* Make the image slightly transparent */
+}
+
+/* Slide-in Animation for Bottom-Left Image */
+@keyframes slideInImage {
+  from {
+    bottom: -600px; /* Start off-screen */
+    left: -600px; /* Start off-screen */
+  }
+  to {
+    bottom: -100px; /* Move the image up slightly */
+    left: -100px; /* Move the image to the left slightly */
+  }
+}
+
+/* Continuous Float Animation for Bottom-Left Image */
+@keyframes floatImage {
+  0%, 100% {
+    transform: rotate(-15deg) translateY(0); /* Start and end position */
+  }
+  50% {
+    transform: rotate(-15deg) translateY(-20px); /* Float up slightly */
+  }
+}
+
+/* Small Top Right Image */
+.top-right-image {
+  position: fixed; /* Fixed position to stay in place */
+  top: 80px; /* Position below the top bar */
+  right: -300px; /* Start off-screen */
+  z-index: -1; /* Place the image behind other elements */
+  transform: rotate(15deg); /* Rotate the image slightly in the opposite direction */
+  width: 300px; /* Adjust the size of the image */
+  height: auto; /* Maintain aspect ratio */
+  overflow: hidden; /* Hide parts of the image that extend outside the container */
+  animation: slideInTopRight 2.5s ease-out 1s forwards, floatTopRight 6s infinite ease-in-out 3s; /* Slide-in and continuous float animation */
+}
+
+.top-right-image img {
+  width: 100%; /* Ensure the image fills the container */
+  height: auto; /* Maintain aspect ratio */
+  opacity: 0.8; /* Make the image slightly transparent */
+}
+
+/* Slide-in Animation for Top-Right Image */
+@keyframes slideInTopRight {
+  from {
+    right: -300px; /* Start off-screen */
+  }
+  to {
+    right: 100px; /* Move the image closer to the middle */
+  }
+}
+
+/* Continuous Float Animation for Top-Right Image */
+@keyframes floatTopRight {
+  0%, 100% {
+    transform: rotate(15deg) translateY(0); /* Start and end position */
+  }
+  50% {
+    transform: rotate(15deg) translateY(-10px); /* Float up slightly */
+  }
+}
+
 .container {
   text-align: center;
   animation: fadeIn 2s ease-in-out;
@@ -61,30 +176,27 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2; /* Ensure cards are above decorative elements */
 }
 
 .card:hover {
   height: 350px; /* Expand height to show the larger image */
 }
 
-.card span {
+.card-title {
   font-size: 1.5rem;
   font-weight: 600;
-  z-index: 2;
   position: absolute;
-  bottom: 0; /* Position at the bottom */
-  width: 100%; /* Take the full width of the button */
-  padding: 8px 0; /* Add vertical padding */
-  border-radius: 0 0 20px 20px; /* Rounded corners to match the card design */
-  background: rgba(255, 111, 145, 1); /* Match the button's aesthetic color (non-transparent) */
-  color: #fff; /* White text for better contrast */
-  text-align: center; /* Center the name */
-  opacity: 1; /* Always visible */
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-}
-
-.card:hover span {
-  opacity: 1; /* Keep the name visible on hover */
+  bottom: 0;
+  width: 100%;
+  padding: 8px 0;
+  border-radius: 0 0 20px 20px;
+  background: rgba(255, 111, 145, 1);
+  color: #fff;
+  text-align: center;
+  opacity: 1;
+  transition: all 0.3s ease;
+  z-index: 3; /* Ensure title is above everything */
 }
 
 .profile-image {
@@ -118,7 +230,7 @@ body {
   height: 50px; /* Increased ribbon size */
   background: #ff6f91;
   transform: rotate(-45deg);
-  z-index: 0;
+  z-index: 1; /* Ensure ribbons are behind cards */
 }
 
 .ribbon-left {
@@ -139,6 +251,7 @@ body {
   background: rgba(255, 255, 255, 0.8);
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
   animation: sparkle 2s infinite ease-in-out;
+  z-index: 1; /* Ensure sparkles are behind cards */
 }
 
 .sparkle-1 {
@@ -161,6 +274,7 @@ body {
   background: #ff6f91;
   clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 70%, 20% 100%, 0% 35%);
   animation: float 4s infinite ease-in-out;
+  z-index: 1; /* Ensure hearts are behind cards */
 }
 
 .heart-1 {
@@ -210,5 +324,90 @@ body {
   50% {
     transform: scale(1.2);
     opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Adjust container for smaller screens */
+  .container {
+    margin-top: -50px; /* Reduce margin for smaller screens */
+  }
+
+  /* Adjust title font size */
+  .title {
+    font-size: 3rem; /* Smaller font size for mobile */
+  }
+
+  /* Adjust subtitle font size */
+  .subtitle {
+    font-size: 1.2rem; /* Smaller font size for mobile */
+    margin-bottom: 2rem; /* Reduce margin for smaller screens */
+  }
+
+  /* Adjust card layout for smaller screens */
+  .selection {
+    flex-direction: column; /* Stack cards vertically */
+    gap: 1rem; /* Reduce gap between cards */
+    margin-top: 30px; /* Reduce margin for smaller screens */
+  }
+
+  .card {
+    width: 180px; /* Reduce card width for smaller screens */
+    height: 60px; /* Reduce card height for smaller screens */
+  }
+
+  .card:hover {
+    height: 300px; /* Adjust expanded height for smaller screens */
+  }
+
+  /* Adjust decorative elements for smaller screens */
+  .ribbon {
+    width: 150px; /* Reduce ribbon size for smaller screens */
+    height: 40px; /* Reduce ribbon size for smaller screens */
+  }
+
+  .sparkle {
+    width: 20px; /* Reduce sparkle size for smaller screens */
+    height: 20px; /* Reduce sparkle size for smaller screens */
+  }
+
+  .heart {
+    width: 30px; /* Reduce heart size for smaller screens */
+    height: 30px; /* Reduce heart size for smaller screens */
+  }
+
+  /* Adjust top-right image for smaller screens */
+  .top-right-image {
+    width: 200px; /* Reduce image size for smaller screens */
+    top: 60px; /* Adjust position for smaller screens */
+    right: -200px; /* Adjust starting position for smaller screens */
+  }
+
+  @keyframes slideInTopRight {
+    from {
+      right: -200px; /* Start off-screen */
+    }
+    to {
+      right: 20px; /* Move the image closer to the middle */
+    }
+  }
+
+  /* Adjust bottom-left image for smaller screens */
+  .bottom-left-image {
+    width: 400px; /* Reduce image size for smaller screens */
+    bottom: -400px; /* Adjust starting position for smaller screens */
+    left: -400px; /* Adjust starting position for smaller screens */
+  }
+
+  @keyframes slideInImage {
+    from {
+      bottom: -400px; /* Start off-screen */
+      left: -400px; /* Start off-screen */
+    }
+    to {
+      bottom: -80px; /* Move the image up slightly */
+      left: -80px; /* Move the image to the left slightly */
+    }
   }
 }
