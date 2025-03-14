@@ -1,379 +1,293 @@
 /* General Styles */
 body {
-    font-family: 'Handlee', cursive;
-    background-color: #fff0f3; /* Very light pink background for the body */
-    color: #5a3e36;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes up the full viewport height */
-    overflow-x: hidden; /* Prevent horizontal scrollbar */
-    position: relative; /* For positioning the background */
-  }
-  
-  /* Add a subtle background pattern behind all content */
-  body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('images/bg-pattern-port.png') repeat; /* Use the new background image */
-    opacity: 0.1; /* Very subtle pattern */
-    z-index: -1; /* Ensure it's behind all content */
-  }
-  
-  /* Ensure pink sections (header, footer, etc.) have a solid background */
-  header,
-  footer,
-  .navbar,
-  .skill-card,
-  .contact-info,
-  .certificate {
-    background-color: #ffb6c1; /* Pastel pink background */
-    position: relative; /* Ensure they sit above the body background */
-    z-index: 1; /* Bring them to the front */
-  }
-  
-  /* Navigation Bar Styles */
-  .navbar {
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 15px;
-    margin: 20px; /* Margin from the top */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    position: sticky; /* Make the navbar sticky */
-    top: 20px; /* Stick to the top with the same margin */
-    z-index: 1000; /* Ensure it's above other content */
-    width: calc(100% - 40px); /* Ensure the navbar doesn't exceed its container width */
-    max-width: 1200px; /* Optional: Set a max-width for larger screens */
-    margin-left: auto;
-    margin-right: auto;
-    transition: none; /* Disable transitions to prevent visual changes */
-  }
-  
-  .navbar.sticky {
-    position: fixed;
-    top: 20px; /* Maintain the same top margin */
-    left: 50%; /* Center the navbar horizontally */
-    transform: translateX(-50%); /* Center the navbar horizontally */
-    width: calc(100% - 40px); /* Retain the same width */
-    max-width: 1200px; /* Optional: Set a max-width for larger screens */
-    margin: 0 auto; /* Center the navbar */
-    border-radius: 15px; /* Retain the rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    animation: none; /* Disable animation to prevent visual changes */
-  }
-  
-  .navbar h2 {
-    font-family: 'Cherry Swash', cursive;
-    font-size: 1.8em;
-    color: #5a3e36;
-    margin: 0;
-  }
-  
-  .navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px; /* Space between navigation items */
-  }
-  
-  .navbar ul li {
-    display: inline;
-  }
-  
-  .navbar ul li a {
-    text-decoration: none;
-    color: #5a3e36;
-    font-size: 1.1em;
-    padding: 5px 10px;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .navbar ul li a:hover {
-    background-color: #ff8fa3; /* Slightly darker pink on hover */
-    color: #fff; /* White text on hover */
-  }
-  
-  /* Header Styles */
-  header {
-    padding: 20px;
-    text-align: center;
-    border-radius: 15px;
-    margin: 20px;
-    position: relative; /* For positioning dessert images */
-  }
-  
-  header h1 {
-    font-size: 3em;
-    margin: 0;
-    color: #5a3e36;
-    font-family: 'Cherry Swash', cursive;
-  }
-  
-  header p {
-    font-size: 1.2em;
-    margin: 5px 0;
-  }
-  
-  header blockquote {
-    font-style: italic;
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 10px;
-    display: inline-block;
-  }
-  
-  /* Profile Picture Styles */
-  header .profile-pic {
-    width: 200px; /* Bigger profile picture */
-    height: 200px;
-    border-radius: 50%;
-    border: 5px solid #ffb6c1; /* Match the border color */
-    object-fit: cover; /* Ensure the image fits well */
-    margin-bottom: 15px; /* Space below the picture */
-  }
-  
-  /* Unique Dessert Images for Portfolio Pages */
-  header .dessert-left-port,
-  header .dessert-right-port {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) rotate(-15deg); /* Slight rotation */
-    width: 120px; /* Adjust width as needed */
-    height: 120px; /* Adjust height as needed */
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: 2; /* Ensure images are above the header */
-    transition: transform 0.3s ease; /* Smooth rotation on hover */
-    animation: bounce 2s ease-in-out infinite; /* Add bounce animation */
-  }
-  
-  header .dessert-left-port {
-    left: 10px; /* Position on the left */
-    background-image: url('images/dessert-left-port.png'); /* Unique left dessert PNG */
-  }
-  
-  header .dessert-right-port {
-    right: 10px; /* Position on the right */
-    background-image: url('images/dessert-right-port.png'); /* Unique right dessert PNG */
-    transform: translateY(-50%) rotate(15deg); /* Rotate the right image in the opposite direction */
-  }
-  
-  /* Add a hover effect to the dessert images */
-  header .dessert-left-port:hover,
-  header .dessert-right-port:hover {
-    transform: translateY(-50%) rotate(0deg); /* Straighten on hover */
-    animation: none; /* Stop bounce animation on hover */
-  }
-  
-  /* Bounce Animation */
-  @keyframes bounce {
-    0%, 100% { transform: translateY(-50%) rotate(-15deg); }
-    50% { transform: translateY(-55%) rotate(-15deg); } /* Slight upward movement */
-  }
-  
-  header .dessert-right-port {
-    animation: bounce-right 2s ease-in-out infinite; /* Separate animation for right image */
-  }
-  
-  @keyframes bounce-right {
-    0%, 100% { transform: translateY(-50%) rotate(15deg); }
-    50% { transform: translateY(-55%) rotate(15deg); } /* Slight upward movement */
-  }
-  
+  font-family: 'Handlee', cursive;
+  background-color: #fff0f3;
+  color: #5a3e36;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Navigation Bar */
+.navbar {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  margin: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+  z-index: 1000;
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffb6c1;
+}
+
+.navbar h2 {
+  font-family: 'Cherry Swash', cursive;
+  font-size: 1.8em;
+  color: #5a3e36;
+  margin: 0;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar ul li {
+  display: inline;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #5a3e36;
+  font-size: 1.1em;
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  background-color: #ff8fa3;
+  color: #fff;
+}
+
+/* Sections */
+.section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  padding: 20px;
+}
+
+.section.active {
+  opacity: 1;
+}
+
+/* Home Section */
+#home {
+  background-color: #ffb6c1;
+  text-align: center;
+}
+
+.profile-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.profile-pic {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 5px solid #ffb6c1;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+#home h1 {
+  font-size: 2.5em;
+  margin: 0;
+  color: #5a3e36;
+  font-family: 'Cherry Swash', cursive;
+}
+
+#home p {
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+#home blockquote {
+  font-style: italic;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: inline-block;
+}
+
 /* Skills Section */
 #skills {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .skill-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .skill-card {
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 2px solid #ffb6c1; /* Match the border color */
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .skill-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Skill Bar Styles */
-  .skill-bar {
-    width: 100%;
-    background-color: #f0f0f0; /* Light gray background for the bar */
-    border-radius: 10px;
-    margin: 10px 0;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 5px;
-  }
-  
-  .skill-logo {
-    width: 24px; /* Adjust logo size as needed */
-    height: 24px;
-    margin-right: 10px; /* Space between logo and text */
-    flex-shrink: 0; /* Prevent the logo from shrinking */
-  }
-  
-  .skill-name {
-    font-size: 0.9em;
-    font-weight: bold;
-    color: #5a3e36;
-    margin-right: 10px; /* Space between name and progress bar */
-    flex-shrink: 0; /* Prevent the name from shrinking */
-    min-width: 60px; /* Set a minimum width for the skill name */
-  }
-  
-  .skill-progress {
-    height: 10px;
-    background-color: #ff8fa3; /* Pastel pink for the progress bar */
-    border-radius: 10px;
-    transition: width 0.5s ease; /* Smooth animation for progress */
-    flex-grow: 1; /* Allow the progress bar to fill remaining space */
-  }
-  
-  /* Certificates Section */
-  #certificates {
-    padding: 20px;
-    text-align: center;
-  }
-  
+  background-color: #fff0f3;
+}
+
+#skills h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #5a3e36;
+  font-family: 'Cherry Swash', cursive;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #ffb6c1;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.skill-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #5a3e36;
+}
+
+.skill-bar {
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  margin: 10px 0;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.skill-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.skill-name {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #5a3e36;
+  margin-right: 10px;
+  flex-shrink: 0;
+  min-width: 60px;
+}
+
+.skill-progress {
+  height: 10px;
+  background-color: #ff8fa3;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+  flex-grow: 1;
+}
+
+/* Certificates Section */
+#certificates {
+  background-color: #ffb6c1;
+}
+
+#certificates h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #5a3e36;
+  font-family: 'Cherry Swash', cursive;
+}
+
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.certificate {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #ffb6c1;
+  transition: transform 0.3s ease;
+}
+
+.certificate:hover {
+  transform: scale(1.05);
+}
+
+/* Contact Section */
+#contact {
+  background-color: #fff0f3;
+}
+
+#contact h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #5a3e36;
+  font-family: 'Cherry Swash', cursive;
+}
+
+.contact-info {
+  border-radius: 15px;
+  padding: 20px;
+  display: inline-block;
+  border: 2px solid #ffb6c1;
+  background-color: #fff;
+}
+
+.contact-info p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.contact-icons a {
+  text-decoration: none;
+  color: #5a3e36;
+  transition: transform 0.3s ease;
+}
+
+.contact-icons a:hover {
+  transform: scale(1.2);
+}
+
+.contact-icons i {
+  font-size: 2em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skill-grid,
   .certificate-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 30px; /* Increased space between certificates */
-    padding: 20px;
-    max-width: 800px; /* Limit the width for better alignment */
-    margin: 0 auto; /* Center the grid */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  
-  .certificate {
-    width: 100%;
-    border-radius: 10px;
-    border: 2px solid #ffb6c1; /* Match the border color */
-    transition: transform 0.3s ease;
-    position: relative;
-    overflow: hidden;
+
+  .profile-pic {
+    width: 200px;
+    height: 200px;
   }
-  
-  .certificate:hover {
-    transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+  .skill-grid,
+  .certificate-grid {
+    grid-template-columns: 1fr;
   }
-  
-  /* Contact Section */
-  #contact {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .contact-info {
-    border-radius: 15px;
-    padding: 20px;
-    display: inline-block;
-    border: 2px solid #ffb6c1; /* Match the border color */
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .contact-info p {
-    margin: 10px 0;
-    font-size: 1.1em;
-  }
-  
-  /* Icon Styles */
-  .contact-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Space between icons */
-    margin-top: 15px;
-  }
-  
-  .contact-icons a {
-    text-decoration: none;
-    color: #5a3e36;
-    transition: transform 0.3s ease;
-  }
-  
-  .contact-icons a:hover {
-    transform: scale(1.2); /* Enlarge icons on hover */
-  }
-  
-  .contact-icons i {
-    font-size: 2em; /* Icon size */
-  }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 15px;
-  }
-  
-  footer p {
-    font-size: 1.2em;
-    margin: 0;
-  }
-  
-  /* Responsive Design for Certificates */
-  @media (max-width: 768px) {
-    .certificate-grid {
-      grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .certificate-grid {
-      grid-template-columns: 1fr; /* 1 column on mobile */
-    }
-  }
-  
-  /* Responsive Design for Navigation Bar */
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .navbar ul {
-      flex-direction: column;
-      gap: 10px;
-    }
-  }
-  
-  /* Responsive Design for Header */
-  @media (max-width: 768px) {
-    header .dessert-left-port,
-    header .dessert-right-port {
-      display: none; /* Hide dessert images on smaller screens */
-    }
-  
-    header .profile-pic {
-      width: 150px; /* Slightly smaller profile picture */
-      height: 150px;
-    }
-  }
+}

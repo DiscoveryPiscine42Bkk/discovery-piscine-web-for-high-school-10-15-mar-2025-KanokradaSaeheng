@@ -1,18 +1,18 @@
 /* General Styles */
 body {
   font-family: 'Handlee', cursive;
-  background-color: #fff0f3; /* Very light pink background for the body */
+  background-color: #fff0f3; 
   color: #5a3e36;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensure the body takes up the full viewport height */
-  overflow-x: hidden; /* Prevent horizontal scrollbar */
-  position: relative; /* For positioning the background */
+  min-height: 100vh; 
+  overflow-x: hidden; 
+  position: relative; 
 }
 
-/* Add a subtle background pattern behind all content */
+
 body::before {
   content: '';
   position: absolute;
@@ -20,25 +20,25 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('images/bg-pattern.png') repeat; /* Add a subtle pattern */
-  opacity: 0.1; /* Very subtle pattern */
-  z-index: -1; /* Ensure it's behind all content */
+  background: url('images/bg-pattern.png') repeat; 
+  opacity: 0.1; 
+  z-index: -1; 
 }
 
 /* Header Styles */
 header {
-  background-color: #ffb6c1; /* Pastel pink background */
+  background-color: #ffb6c1; 
   padding: 20px;
   text-align: center;
-  position: relative; /* For decorative elements */
+  position: relative; 
 }
 
 header h1 {
-  font-size: 4em; /* Bigger title */
+  font-size: 4em; 
   margin: 0;
   color: #5a3e36;
-  font-family: 'Cherry Swash', cursive; /* New font for the title */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  font-family: 'Cherry Swash', cursive; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
 /* Dessert Images on Main Page */
@@ -46,59 +46,59 @@ header .dessert-left,
 header .dessert-right {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%) rotate(-15deg); /* Slight rotation */
-  width: 120px; /* Adjust width as needed */
-  height: 120px; /* Adjust height as needed */
+  transform: translateY(-50%) rotate(-15deg);
+  width: 120px; 
+  height: 120px;
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 2; /* Ensure images are above the header */
-  transition: transform 0.3s ease; /* Smooth rotation on hover */
-  animation: bounce 2s ease-in-out infinite; /* Add bounce animation */
+  z-index: 2; 
+  transition: transform 0.3s ease; 
+  animation: bounce 2s ease-in-out infinite; 
 }
 
 header .dessert-left {
-  left: 10px; /* Position on the left */
-  background-image: url('images/dessert-left.png'); /* Add your left dessert PNG */
+  left: 10px; 
+  background-image: url('images/dessert-left.png');
 }
 
 header .dessert-right {
-  right: 10px; /* Position on the right */
-  background-image: url('images/dessert-right.png'); /* Add your right dessert PNG */
-  transform: translateY(-50%) rotate(15deg); /* Rotate the right image in the opposite direction */
+  right: 10px; 
+  background-image: url('images/dessert-right.png'); 
+  transform: translateY(-50%) rotate(15deg); 
 }
 
 /* Add a hover effect to the dessert images */
 header .dessert-left:hover,
 header .dessert-right:hover {
-  transform: translateY(-50%) rotate(0deg); /* Straighten on hover */
-  animation: none; /* Stop bounce animation on hover */
+  transform: translateY(-50%) rotate(0deg); 
+  animation: none; 
 }
 
 /* Bounce Animation */
 @keyframes bounce {
   0%, 100% { transform: translateY(-50%) rotate(-15deg); }
-  50% { transform: translateY(-55%) rotate(-15deg); } /* Slight upward movement */
+  50% { transform: translateY(-55%) rotate(-15deg); } 
 }
 
 header .dessert-right {
-  animation: bounce-right 2s ease-in-out infinite; /* Separate animation for right image */
+  animation: bounce-right 2s ease-in-out infinite; 
 }
 
 @keyframes bounce-right {
   0%, 100% { transform: translateY(-50%) rotate(15deg); }
-  50% { transform: translateY(-55%) rotate(15deg); } /* Slight upward movement */
+  50% { transform: translateY(-55%) rotate(15deg); } 
 }
 
 /* Main Container for Cards */
 .main-container {
   display: flex;
-  justify-content: space-around; /* Space cards evenly */
-  align-items: center; /* Center cards vertically */
+  justify-content: space-around; 
+  align-items: center; 
   padding: 20px;
-  gap: 20px; /* Space between cards */
-  flex-grow: 1; /* Allow the main container to grow and push the footer down */
+  gap: 20px; 
+  flex-grow: 1; 
   position: relative;
-  box-sizing: border-box; /* Ensure padding is included in width */
+  box-sizing: border-box; 
 }
 
 /* Add a more visible background pattern to the main container */
@@ -109,8 +109,8 @@ header .dessert-right {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('images/bg-pattern.png') repeat; /* Add a subtle pattern */
-  opacity: 0.1; /* Very subtle pattern */
+  background: url('images/bg-pattern.png') repeat; 
+  opacity: 0.1; 
   z-index: -1;
 }
 
@@ -118,14 +118,14 @@ header .dessert-right {
 .menu-card {
   background-color: #fff;
   border-radius: 15px;
-  padding: 30px; /* Increased padding for more space */
+  padding: 30px; 
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 45%; /* Set a fixed width for each card */
-  box-sizing: border-box; /* Ensure padding is included in width */
+  width: 45%; 
+  box-sizing: border-box; 
   position: relative;
   overflow: hidden;
-  border: 2px solid #ffb6c1; /* Add a border for a cute look */
+  border: 2px solid #ffb6c1; 
 }
 
 .menu-card:hover {
@@ -134,27 +134,27 @@ header .dessert-right {
 }
 
 .profile-pic {
-  width: 180px; /* Increased size for more space */
-  height: 180px; /* Increased size for more space */
+  width: 180px; 
+  height: 180px; 
   border-radius: 50%;
-  border: 5px solid #ffb6c1; /* Match the border color */
-  object-fit: cover; /* Prevent image squeezing */
-  margin-bottom: 20px; /* Increased margin for more space */
+  border: 5px solid #ffb6c1; 
+  object-fit: cover; 
+  margin-bottom: 20px; 
 }
 
 .btn {
-  background-color: #ffb6c1; /* Pastel pink background */
+  background-color: #ffb6c1; 
   padding: 10px 20px;
   border-radius: 20px;
   text-decoration: none;
   color: #5a3e36;
   display: inline-block;
-  margin-top: 15px; /* Increased margin for more space */
+  margin-top: 15px; 
   transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #ff8fa3; /* Slightly darker pink on hover */
+  background-color: #ff8fa3; 
 }
 
 /* Decorate Kanokrada Saeheng's Card */
@@ -163,9 +163,9 @@ header .dessert-right {
   position: absolute;
   bottom: 10px;
   left: 10px;
-  width: 80px; /* Adjust size as needed */
-  height: 80px; /* Adjust size as needed */
-  background-image: url('images/decor-left.png'); /* Add your left decoration PNG */
+  width: 80px; 
+  height: 80px;
+  background-image: url('images/decor-left.png'); 
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 1; /* Ensure it's above the card */
@@ -177,23 +177,23 @@ header .dessert-right {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  width: 80px; /* Adjust size as needed */
-  height: 80px; /* Adjust size as needed */
-  background-image: url('images/decor-right.png'); /* Add your right decoration PNG */
+  width: 80px; 
+  height: 80px; 
+  background-image: url('images/decor-right.png'); 
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 1; /* Ensure it's above the card */
+  z-index: 1; 
 }
 
 /* Footer Styles */
 footer {
   text-align: center;
   padding: 15px;
-  background-color: #ffb6c1; /* Pastel pink background */
+  background-color: #ffb6c1; 
   position: relative;
-  margin-top: auto; /* Push footer to the bottom */
+  margin-top: auto; 
   width: 100%;
-  box-sizing: border-box; /* Ensure padding is included in width */
+  box-sizing: border-box; 
 }
 
 footer p {
@@ -211,24 +211,24 @@ footer p {
 /* Responsive Design */
 @media (max-width: 768px) {
   .main-container {
-    flex-direction: column; /* Stack cards vertically on smaller screens */
+    flex-direction: column; 
   }
   .menu-card {
-    width: 90%; /* Full width on smaller screens */
+    width: 90%; 
   }
 
   header .dessert-left,
   header .dessert-right {
-    display: none; /* Hide dessert images on smaller screens */
+    display: none; 
   }
 
   header h1 {
-    font-size: 2.5em; /* Slightly smaller title on smaller screens */
+    font-size: 2.5em; 
   }
 
   .menu-card.ksaeheng::after,
   .menu-card.nbannama::after {
-    width: 60px; /* Smaller decorations on smaller screens */
+    width: 60px; 
     height: 60px;
   }
 }
