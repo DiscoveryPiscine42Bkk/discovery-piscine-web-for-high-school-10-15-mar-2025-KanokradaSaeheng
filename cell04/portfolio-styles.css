@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     font-family: 'Handlee', cursive;
-    background-color: #f9e9e9;
+    background-color: #fff0f3; /* Very light pink background for the body */
     color: #5a3e36;
     margin: 0;
     padding: 0;
@@ -9,11 +9,36 @@ body {
     flex-direction: column;
     min-height: 100vh; /* Ensure the body takes up the full viewport height */
     overflow-x: hidden; /* Prevent horizontal scrollbar */
+    position: relative; /* For positioning the background */
+  }
+  
+  /* Add a subtle background pattern behind all content */
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/bg-pattern-port.png') repeat; /* Use the new background image */
+    opacity: 0.1; /* Very subtle pattern */
+    z-index: -1; /* Ensure it's behind all content */
+  }
+  
+  /* Ensure pink sections (header, footer, etc.) have a solid background */
+  header,
+  footer,
+  .navbar,
+  .skill-card,
+  .contact-info,
+  .certificate {
+    background-color: #ffb6c1; /* Pastel pink background */
+    position: relative; /* Ensure they sit above the body background */
+    z-index: 1; /* Bring them to the front */
   }
   
   /* Navigation Bar Styles */
   .navbar {
-    background-color: #ffd1dc; /* Pastel pink background */
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -73,13 +98,12 @@ body {
   }
   
   .navbar ul li a:hover {
-    background-color: #ffb6c1; /* Slightly darker pink on hover */
+    background-color: #ff8fa3; /* Slightly darker pink on hover */
     color: #fff; /* White text on hover */
   }
   
   /* Header Styles */
   header {
-    background-color: #ffd1dc;
     padding: 20px;
     text-align: center;
     border-radius: 15px;
@@ -113,7 +137,7 @@ body {
     width: 200px; /* Bigger profile picture */
     height: 200px;
     border-radius: 50%;
-    border: 5px solid #ffd1dc; /* Match the border color */
+    border: 5px solid #ffb6c1; /* Match the border color */
     object-fit: cover; /* Ensure the image fits well */
     margin-bottom: 15px; /* Space below the picture */
   }
@@ -166,8 +190,8 @@ body {
     50% { transform: translateY(-55%) rotate(15deg); } /* Slight upward movement */
   }
   
-  /* Skills Section */
-  #skills {
+/* Skills Section */
+#skills {
     padding: 20px;
     text-align: center;
   }
@@ -185,26 +209,51 @@ body {
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 2px solid #ffd1dc;
+    border: 2px solid #ffb6c1; /* Match the border color */
     position: relative;
     overflow: hidden;
-  }
-  
-  .skill-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('images/bg-pattern.png') repeat; /* Subtle background pattern */
-    opacity: 0.1; /* Very subtle pattern */
-    z-index: -1;
   }
   
   .skill-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Skill Bar Styles */
+  .skill-bar {
+    width: 100%;
+    background-color: #f0f0f0; /* Light gray background for the bar */
+    border-radius: 10px;
+    margin: 10px 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+  }
+  
+  .skill-logo {
+    width: 24px; /* Adjust logo size as needed */
+    height: 24px;
+    margin-right: 10px; /* Space between logo and text */
+    flex-shrink: 0; /* Prevent the logo from shrinking */
+  }
+  
+  .skill-name {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #5a3e36;
+    margin-right: 10px; /* Space between name and progress bar */
+    flex-shrink: 0; /* Prevent the name from shrinking */
+    min-width: 60px; /* Set a minimum width for the skill name */
+  }
+  
+  .skill-progress {
+    height: 10px;
+    background-color: #ff8fa3; /* Pastel pink for the progress bar */
+    border-radius: 10px;
+    transition: width 0.5s ease; /* Smooth animation for progress */
+    flex-grow: 1; /* Allow the progress bar to fill remaining space */
   }
   
   /* Certificates Section */
@@ -225,22 +274,10 @@ body {
   .certificate {
     width: 100%;
     border-radius: 10px;
-    border: 2px solid #ffd1dc;
+    border: 2px solid #ffb6c1; /* Match the border color */
     transition: transform 0.3s ease;
     position: relative;
     overflow: hidden;
-  }
-  
-  .certificate::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('images/bg-pattern.png') repeat; /* Subtle background pattern */
-    opacity: 0.1; /* Very subtle pattern */
-    z-index: -1;
   }
   
   .certificate:hover {
@@ -254,25 +291,12 @@ body {
   }
   
   .contact-info {
-    background-color: #fff;
     border-radius: 15px;
     padding: 20px;
     display: inline-block;
-    border: 2px solid #ffd1dc;
+    border: 2px solid #ffb6c1; /* Match the border color */
     position: relative;
     overflow: hidden;
-  }
-  
-  .contact-info::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('images/bg-pattern.png') repeat; /* Subtle background pattern */
-    opacity: 0.1; /* Very subtle pattern */
-    z-index: -1;
   }
   
   .contact-info p {
@@ -306,7 +330,6 @@ body {
   footer {
     text-align: center;
     padding: 15px;
-    background-color: #ffd1dc;
     margin-top: 20px;
     border-radius: 15px;
   }
