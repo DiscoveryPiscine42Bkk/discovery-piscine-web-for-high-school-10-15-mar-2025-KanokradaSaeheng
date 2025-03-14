@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's over 9000</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Centering everything */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input, select, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <h1>It's over 9000</h1>
+
+        <!-- Input for first number -->
+        <input type="text" id="num1" placeholder="Enter first number">
+
+        <!-- Dropdown for operator -->
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+
+        <!-- Input for second number -->
+        <input type="text" id="num2" placeholder="Enter second number">
+
+        <!-- Try me button -->
+        <button id="calculate">Try me!</button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#calculate").click(function () {
+                let num1 = $("#num1").val().trim();
+                let num2 = $("#num2").val().trim();
+                let operator = $("#operator").val();
+
+                // Validate input: must be positive numbers
+                if (!/^\d+(\.\d+)?$/.test(num1) || !/^\d+(\.\d+)?$/.test(num2)) {
+                    console.error("error: invalid input ->", num1, operator, num2);
+                    return;
+                }
+
+                let val1 = parseFloat(num1);
+                let val2 = parseFloat(num2);
+
+                // Check for division/modulo by zero
+                if ((operator === '/' || operator === '%') && val2 === 0) {
+                    alert("it's over 9000!");
+                    console.error("Math error: dividing/mod by zero ->", val1, operator, val2);
+                    return;
+                }
+
+                let result;
+                switch (operator) {
+                    case '+': result = val1 + val2; break;
+                    case '-': result = val1 - val2; break;
+                    case '*': result = val1 * val2; break;
+                    case '/': result = val1 / val2; break;
+                    case '%': result = val1 % val2; break;
+                }
+
+                alert("Result: " + result);
+                console.log("Result:", val1, operator, val2, "=", result);
+            });
+
+            // Every 30 seconds, show alert "please use me. . ."
+            setInterval(function () {
+                alert("please use me. . .");
+            }, 30000);
+        });
+    </script>
+
+</body>
+</html>
